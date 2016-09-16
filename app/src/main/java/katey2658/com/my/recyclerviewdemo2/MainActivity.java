@@ -15,15 +15,20 @@ import java.util.ArrayList;
 import java.util.List;
 /*
 1。添加库依赖
-2. 新建布局 引入RecyclerView
+2. 新建布局 引入RecyclerView控件
 3. 获取RecyclerView控件然后进行设置LayoutManager以及Adapter
 4. 自定义一个适配器来进行创建Item view以及绑定数据
 5. 分隔线ItemDecoration(并不是强制需要),系统提供 的ItemDecoration是一个抽象类
 6. 设置监听事件处理
+7. 引入CardView
+8. SwipeRefreshLayout设置下拉刷新，
+   并且设置OnRefreshListener设置相关得监听事件
+   注意这里方法里面需要在Handler里Runable，因为需要在线程里操作———>ANR
+   完成后调用setRefreshing（false)不显示刷新视图，可以设置刷新动画颜色
  */
 
 public class MainActivity extends AppCompatActivity {
-    //先设置了一个对象
+    //先设置一个对象
     private RecyclerView mRecyclerView;
     //数据
     private List<Item_single>mDatas;
